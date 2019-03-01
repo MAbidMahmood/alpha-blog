@@ -3,7 +3,9 @@
 <p>
     Title: <%= @article.title %>
 </p>
-
+        <tr>
+        <p>written by: <%= link_to @article.user.username, user_path(@article.user) %></p>
+        </tr>
 <p>
     Description: <%= @article.description %>
 </p>

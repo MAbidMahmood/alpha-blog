@@ -12,13 +12,20 @@
   <body>
   <% flash.each do |name, msg| %>
 
-    <ul>   
+    <ul>
     <li><%= msg %></li>
     </ul>
-    
+
+  <% end %>
+
+  <% if logged_in? %>
+    <%= link_to 'Log Out', logout_path, method: :delete %>
+  <% else %>
+    <button> <%= link_to "LogIn", login_path %> </button>
   <% end %>
 
     <%= yield %>
     <h1>End</h1>
+    <%= debug(params) if Rails.env.development? %>
   </body>
 </html>
